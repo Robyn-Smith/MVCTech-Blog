@@ -241,11 +241,6 @@
     aside {
       order: 2;
     }
-    /* Change the header background */
-    header {
-      background: var(--maincolour);
-    }
-    /* Change the navbar and footer background */
     nav {
       background-color: var(--secondary);
     }
