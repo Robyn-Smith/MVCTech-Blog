@@ -2,44 +2,44 @@
 
     {
       "id": 1,
-      "title": "The Beginners Guide to Node.js",
-      "description": "This blog post introduces the basics of Node.js and how to get started.",
+      "title": "An introduction to CSS and Front End Development",
+      "description": "This blog post explains the basics of CSS and Front End Development",
       "user_id": 1
     },
     {
       "id": 2,
-      "title": "Understanding Sequelize ORM",
-      "description": "A deep dive into the Sequelize Object-Relational Mapping (ORM) library for Node.js.",
+      "title": "How to use Javascript to add interactivity to your websites",
+      "description": "This post provides users with a basic understanding of Javascript and potential ways to use it",
       "user_id": 2
     },
     {
       "id": 3,
-      "title": "Exploring JavaScript ES6 Features",
-      "description": "In this blog post, we will explore some of the most powerful features of the ES6 JavaScript update.",
+      "title": "What is the difference between HTML and HTML5?",
+      "description": "This blog compares the differences between both old and newer Hypertext Markup Languages",
       "user_id": 3
     },
     {
       "id": 4,
-      "title": "Diving into Express.js Middlewares",
-      "description": "Express.js middlewares represent a powerful feature of the Express.js framework. In this post, we explain how they work and how to use them.",
+      "title": "Bootstrap, Tailwind and other alternative CSS tools to make your website look great!",
+      "description": "A blog that will support you to create the best UI by exploring a number of applications and CSS frameworks",
       "user_id": 4
     },
     {
       "id": 5,    
-      "title": "Introduction to Full Stack Development",
-      "description": "In this blog post, we will explore the fundamentals of full stack development and its importance in modern web development.",
+      "title": "Python, what is it?",
+      "description": "A guide into the basic knowledge of phython and back-end technologies",
       "user_id": 1
     },
     {
       "id": 6,    
-      "title": "Backend Technologies for Full Stack Development",
-      "description": "Learn about popular backend technologies used in full stack development, including Node.js, Express.js, and databases like MySQL or MongoDB.",
+      "title": "The power of MySQL and Sequelize",
+      "description": "Learn about MySQL, Sequelize and Databases",
       "user_id": 2
     },
     {
       "id": 7,    
-      "title": "Frontend Frameworks for Full Stack Development",
-      "description": "Discover frontend frameworks like React, Angular, and Vue.js that enable efficient full stack development by building dynamic user interfaces.",
+      "title": "Web APIs, Third-Party APIs and Server-side APIs",
+      "description": "Learn about API's and how to use them to your advantage",
       "user_id": 3
     }
   ]
