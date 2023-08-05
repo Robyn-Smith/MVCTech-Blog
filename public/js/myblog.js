@@ -20,7 +20,7 @@ const submitUpdateHandler = async (event) => {
       if (response.ok) {
         document.location.replace(`/dashboard`);
       } else {
-        alert('Failed to update blog.');
+        alert('unable to update blog.');
       }
     }
   };
@@ -40,7 +40,7 @@ const submitUpdateHandler = async (event) => {
     if (response.ok) {
       document.location.replace(`/dashboard`);
     } else {
-      alert('Failed to delete blog.');
+      alert('unable to delete blog.');
     }
   };
 

@@ -16,7 +16,7 @@ const submitCommentHandler = async (event) => {
       if (response.ok) {
         document.location.replace(`/blog/${id}`);
       } else {
-        alert('Failed to add comment.');
+        alert('Unable to add comment.');
       }
     }
   };

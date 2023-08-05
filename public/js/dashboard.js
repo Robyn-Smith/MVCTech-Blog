@@ -24,7 +24,7 @@ const submitBlogHandler = async (event) => {
       if (response.ok) {
         document.location.replace(`/dashboard`);
       } else {
-        alert('Failed to add blog.');
+        alert('unable to add post');
       }
     }
   };

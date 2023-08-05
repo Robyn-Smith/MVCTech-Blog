@@ -203,6 +203,10 @@
     nav {
       flex-direction: column;
     }
+    #logout {
+      flex-direction: column;
+      margin: auto;
+    }
     /* Make the sidebar stack below the body */
     aside {
       order: 2;
