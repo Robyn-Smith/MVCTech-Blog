@@ -1,29 +1,55 @@
 * {
     box-sizing: border-box;
   }
+
+  :root {
+    --maincolour: #710e6a;
+    --secondary: rgba(241, 16, 218, 0.174);
+  }
   
   body {
-    font-family: Arial;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     margin: 0;
+    background-image: linear-gradient(60deg, rgba(19, 5, 208, 0.215), white, rgba(241, 196, 16, 0.174));
   }
   
   header {
     padding: 20px;
     text-align: center;
-    background: #13293d;
-    color: #fff;
+    color: var(--maincolour);
+    font-weight: bolder;
   }
   
   nav {
     display: flex;
-    background: #13293d;
+    background: var(--secondary);
   }
-  
-  nav a {
-    color: #fff;
+
+  #logout {
+    display: flex;
+    background: rgba(241, 16, 218, 0);;
+    color: var(--maincolour);
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
+    border: none;
+    font-weight: bold;
+  }
+  #logout:hover {
+    color: rgb(182, 21, 131);
+  }
+
+  nav a {
+    color: var(--maincolour);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  a:hover {
+    color: rgb(182, 21, 131);
+    text-decoration: none;
   }
   
   main {
@@ -35,21 +61,21 @@
   
   section {
     flex: 3;
-    background-color: #fff;
+    background-color: #ffffff66;
     padding: 20px;
   }
   
-  .sample-img {
+  /* .sample-img {
     background-color: #fff;
     width: 100%;
     padding: 0;
     border: 5px solid black;
-  }
+  } */
   
-  .sample-img p {
+  /* .sample-img p {
     padding-left: 20px; /* Add padding to the left side */
-    margin-bottom:10px;  
-  }
+    /* margin-bottom:10px;  
+  } */ 
   
   /* Make the textarea stretch to both sides */
   .sample-img .form-group textarea {
@@ -67,7 +93,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;    
-    background-color: #13293d; /* Background color for the header */
+    background-color: var(--maincolour); /* Background color for the header */
     color: #fff; /* Font color for the header */
     padding: 10px;  
   }
@@ -103,7 +129,7 @@
   
   .sample-img input[type="submit"] {
     padding: 8px 16px;
-    background-color: #13293d;
+    background-color: var(--maincolour);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -111,7 +137,7 @@
   
   /* effect on button hover */
   .sample-img input[type="submit"]:hover {
-    background-color: #1e3d5a;
+    background-color: var(--maincolour);
   }
   
   .sample-img p {
@@ -119,7 +145,7 @@
   }
   
   .sample-img a {
-    color: #13293d;
+    color: var(--maincolour);
     text-decoration: none;
   }
   
@@ -137,7 +163,7 @@
     bottom: 20px;
     right: 20px;
     padding: 10px 20px;
-    background-color: #13293d;
+    background-color: var(--maincolour);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -145,7 +171,7 @@
   
   /* effect on hover on button*/
   .new-post-button:hover {
-    background-color: #1e3d5a;
+    background-color: var(--maincolour);
   }
   
   /* default: no underline for <a> link*/
@@ -153,14 +179,14 @@
     text-decoration: none;
   }
   
-  .card a {
+  .box a {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s;
   }
   
   /* on hover: add underline*/
-  .card a:hover {
+  .box a:hover {
     color: green; 
     text-decoration: underline; 
   }
@@ -183,11 +209,10 @@
     }
     /* Change the header background */
     header {
-      background: #772014;
+      background: var(--maincolour);
     }
     /* Change the navbar and footer background */
-    nav,
-    footer {
-      background-color: #bb8588;
+    nav {
+      background-color: var(--secondary);
     }
   }
