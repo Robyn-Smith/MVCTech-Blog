@@ -224,6 +224,9 @@
   }
   
   @media screen and (max-width: 768px) {
+    body{
+      font-weight: lighter;
+    }
     /* Use flex-direction to stack the navbar, sidebar, and body */
     main,
     nav {
@@ -232,6 +235,7 @@
     #logout {
       flex-direction: column;
       margin: auto;
+      font-weight: lighter;
     }
     /* Make the sidebar stack below the body */
     aside {
