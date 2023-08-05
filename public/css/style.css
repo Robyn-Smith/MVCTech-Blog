@@ -5,6 +5,7 @@
   :root {
     --maincolour: #710e6a;
     --secondary: rgba(241, 16, 218, 0.174);
+    --hover:rgb(182, 21, 131);
   }
   
   body {
@@ -37,7 +38,7 @@
     font-weight: bold;
   }
   #logout:hover {
-    color: rgb(182, 21, 131);
+    color: var(--hover);
   }
 
   nav a {
@@ -65,6 +66,27 @@
     padding: 20px;
   }
   
+  #submit {
+    width: fit-content;
+    background-color: var(--maincolour);
+  }
+  #submit:hover {
+    background-color: var(--hover);
+  }
+  #delete {
+    width: fit-content;
+    background-color: var(--maincolour);
+  }
+  #delete:hover {
+    background-color: var(--hover);
+  }
+  #updatepost{
+    width: fit-content;
+    background-color: var(--maincolour); 
+  }
+  #updatepost:hover {
+    background-color: var(--hover);
+  }
   /* .sample-img {
     background-color: #fff;
     width: 100%;
@@ -96,6 +118,7 @@
     background-color: var(--maincolour); /* Background color for the header */
     color: #fff; /* Font color for the header */
     padding: 10px;  
+    border-radius: 5px;
   }
   
   .title h2 {
@@ -106,6 +129,9 @@
   .title p{
     padding-right: 10px;  
   
+  }
+  .title:hover{
+    background-color: var(--hover);
   }
   
   /* form stack column-wise*/
@@ -187,8 +213,8 @@
   
   /* on hover: add underline*/
   .box a:hover {
-    color: green; 
-    text-decoration: underline; 
+    color: var(--hover); 
+    text-decoration: none; 
   }
   
   /* for username and password, make them display center */
