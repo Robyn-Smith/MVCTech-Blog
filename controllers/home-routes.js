@@ -65,18 +65,18 @@ router.post('/api/blog/:id', withAuth, async (req, res) => {
 
   try {
     // retrieve the user.id from username
-    const dbUserData = await User.findOne({
+    const userInfoDB = await User.findOne({
       where: {
         username: req.session.username,
       },
     });
 
-    if (dbUserData.id) {
+    if (userInfoDB.id) {
       try {
         const dbCommentData = await Comment.create({
           blog_id: req.params.id,
           description: req.body.comment,
-          user_id: dbUserData.id
+          user_id: userInfoDB.id
         });
         req.session.save(() => {
           req.session.loggedIn = true;
@@ -99,17 +99,17 @@ router.post('/api/blog/:id', withAuth, async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // find  the user.id from username
-    const dbUserData = await User.findOne({
+    const userInfoDB = await User.findOne({
       where: {
         username: req.session.username,
       },
     });
 
-    if (dbUserData.id) {
+    if (userInfoDB.id) {
       try {
         const dbBlogData = await Blog.findAll({
           where: {
-            user_id: dbUserData.id,
+            user_id: userInfoDB.id,
           },
           order: [['createdAt', 'DESC']], 
         });
@@ -135,18 +135,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.post('/dashboard', withAuth, async (req, res) => {
   try {
     // retrieve the user.id from username
-    const dbUserData = await User.findOne({
+    const userInfoDB = await User.findOne({
       where: {
         username: req.session.username,
       },
     });
 
-    if (dbUserData.id) {
+    if (userInfoDB.id) {
       try {
         const dbBlogData = await Blog.create({
           title: req.body.title,
           description: req.body.description,
-          user_id: dbUserData.id
+          user_id: userInfoDB.id
         });
         req.session.save(() => {
           req.session.loggedIn = true;

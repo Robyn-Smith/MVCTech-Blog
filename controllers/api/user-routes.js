@@ -6,11 +6,11 @@ router.post('/signup', async (req, res) => {
   try {
 
     await console.log(req.body);  
-    const dbUserData = await User.create({
+    const userInfoDB = await User.create({
       username: req.body.username,
       password: req.body.password,
     });
-    console.log(dbUserData)
+    console.log(userInfoDB)
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.username = req.body.username;
@@ -28,20 +28,20 @@ router.post('/signup', async (req, res) => {
 // Login path - for user login
 router.post('/login', async (req, res) => {
   try {
-    const dbUserData = await User.findOne({
+    const userInfoDB = await User.findOne({
       where: {
         username: req.body.username,
       },
     });
 
-    if (!dbUserData) {
+    if (!userInfoDB) {
       res
         .status(400)
         .json({ message: 'Unable to login' });
       return;
     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
+    const validPassword = await userInfoDB.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
