@@ -7,13 +7,13 @@ const submitCommentHandler = async (event) => {
       ];
     
     if (comment) {
-      const response = await fetch(`/api/blog/${id}`, {
+      const result = await fetch(`/api/blog/${id}`, {
         method: 'POST',
         body: JSON.stringify({comment}),
         headers: { 'Content-Type': 'application/json' },
       });
   
-      if (response.ok) {
+      if (result.ok) {
         document.location.replace(`/blog/${id}`);
       } else {
         alert('Unable to add comment.');

@@ -8,7 +8,7 @@ const submitUpdateHandler = async (event) => {
       ];
     
     if (title && description) {
-      const result = await fetch(`/myblog/${id}`, {
+      const result = await fetch(`/mypost/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
           title: title,
@@ -32,7 +32,7 @@ const submitUpdateHandler = async (event) => {
         window.location.toString().split('/').length - 1
       ];
     
-    const result = await fetch(`/myblog/${id}`, {
+    const result = await fetch(`/mypost/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     });
