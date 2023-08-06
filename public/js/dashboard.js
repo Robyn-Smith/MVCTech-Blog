@@ -1,9 +1,9 @@
 const addPostBtn = document.querySelector('.new-post-button');
-const articleElement = document.querySelector('article');
-const createButton = document.querySelector('#crate');
+const articleEl = document.querySelector('article');
+const newBtn = document.querySelector('newBtn');
 
 addPostBtn.addEventListener('click', () => {
-  articleElement.classList.remove('d-none');
+  articleEl.classList.remove('d-none');
 });
 
 const createDashboard = async (event) => {
