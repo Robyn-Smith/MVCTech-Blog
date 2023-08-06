@@ -73,7 +73,7 @@ router.post('/api/blog/:id', withAuth, async (req, res) => {
 
     if (userInfoDB.id) {
       try {
-        const dbCommentData = await Comment.create({
+        const CommentDB = await Comment.create({
           blog_id: req.params.id,
           description: req.body.comment,
           user_id: userInfoDB.id
@@ -82,7 +82,7 @@ router.post('/api/blog/:id', withAuth, async (req, res) => {
           req.session.loggedIn = true;
           req.session.username = req.session.username;
     
-          res.status(200).json(dbCommentData);
+          res.status(200).json(CommentDB);
         });
       } catch (err) {
         console.log(err);
