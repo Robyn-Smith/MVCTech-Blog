@@ -6,29 +6,31 @@ addPostBtn.addEventListener('click', () => {
 });
 
 const createDashboard = async (event) => {
-    event.preventDefault();
-  
-    const title = document.querySelector('#title').value.trim();
-    const description = document.querySelector('#description').value.trim();
+  event.preventDefault();
 
-    if (title && description) {
-      const result = await fetch(`/dashboard`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title: title,
-            description, description,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (result.ok) {
-        document.location.replace(`/dashboard`);
-      } else {
-        alert('unable to add post');
+  const title = document.querySelector('#title').value.trim();
+  const description = document.querySelector('#description').value.trim();
+
+  if (title && description) {
+    const result = await fetch(`/dashboard`, {
+      method: 'POST',
+      body: JSON.stringify({
+        title: title,
+        description: description
+      }),
+      headers: {
+        'Content-Type': 'application/json'
       }
+    });
+
+    if (result.ok) {
+      document.location.replace(`/dashboard`);
+    } else {
+      alert('Unable to add post.');
     }
-  };
-  
-  document
-    .querySelector('#create')
-    .addEventListener('submit', createDashboard);
+  }
+};
+
+document
+  .querySelector('#create')
+  .addEventListener('submit', createDashboard);
