@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 // GET all blogs for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbBlogData = await Blog.findAll({
+    const BlogDB = await Blog.findAll({
       include: [
         {
           model: Comment,
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
       order: [['createdAt', 'DESC']],      
     });
 
-    const blogs = dbBlogData.map((blog) =>
+    const blogs = BlogDB.map((blog) =>
       blog.get({ plain: true })
     );
     res.render('homepage', {
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 router.get('/blog/:id', withAuth, async (req, res) => {
   // If the user is logged in, allow them to view the blog
   try {
-    const dbBlogData = await Blog.findByPk(req.params.id, {
+    const BlogDB = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
@@ -47,8 +47,8 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         },
       ],
     });
-    if (dbBlogData){
-      const blog = dbBlogData.get({ plain: true });
+    if (BlogDB){
+      const blog = BlogDB.get({ plain: true });
       res.render('blog', { blog, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).json({ message: 'No Blog found with that id!' });
@@ -107,15 +107,15 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     if (userInfoDB.id) {
       try {
-        const dbBlogData = await Blog.findAll({
+        const BlogDB = await Blog.findAll({
           where: {
             user_id: userInfoDB.id,
           },
           order: [['createdAt', 'DESC']], 
         });
         let blogs ={};
-        if (dbBlogData){
-          blogs = dbBlogData.map((blog) =>
+        if (BlogDB){
+          blogs = BlogDB.map((blog) =>
             blog.get({ plain: true })
           );
         }
@@ -143,7 +143,7 @@ router.post('/dashboard', withAuth, async (req, res) => {
 
     if (userInfoDB.id) {
       try {
-        const dbBlogData = await Blog.create({
+        const BlogDB = await Blog.create({
           title: req.body.title,
           description: req.body.description,
           user_id: userInfoDB.id
@@ -152,7 +152,7 @@ router.post('/dashboard', withAuth, async (req, res) => {
           req.session.loggedIn = true;
           req.session.username = req.session.username;
     
-          res.status(200).json(dbBlogData);
+          res.status(200).json(BlogDB);
         });
       } catch (err) {
         console.log(err);
@@ -169,10 +169,10 @@ router.post('/dashboard', withAuth, async (req, res) => {
 // GET one Blog Post, own blog post
 router.get('/myblog/:id', withAuth, async (req, res) => {
   try {
-    const dbBlogData = await Blog.findByPk(req.params.id);
+    const BlogDB = await Blog.findByPk(req.params.id);
 
-    if (dbBlogData){
-      const blog = dbBlogData.get({ plain: true });
+    if (BlogDB){
+      const blog = BlogDB.get({ plain: true });
       res.render('myblog', { blog, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).json({ message: 'No Blog found with that id!' });
@@ -188,16 +188,16 @@ router.get('/myblog/:id', withAuth, async (req, res) => {
 // DELETE a blog post (can only do so by post creator)
 router.delete('/myblog/:id', withAuth, async (req, res) => {
   try {
-    const dbBlogData = await Blog.destroy({
+    const BlogDB = await Blog.destroy({
       where: {
         id: req.params.id,
       },
     });
-    if (!dbBlogData) {
+    if (!BlogDB) {
       res.status(404).json({ message: 'No Blog found with that id!' });
       return;
     }
-    res.status(200).json(dbBlogData);
+    res.status(200).json(BlogDB);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -206,16 +206,16 @@ router.delete('/myblog/:id', withAuth, async (req, res) => {
 // PUT update the blog post
 router.put('/myblog/:id', withAuth, async (req, res) => {
   try {
-    const dbBlogData = await Blog.update(req.body, {
+    const BlogDB = await Blog.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
-    if (!dbBlogData[0]) {
+    if (!BlogDB[0]) {
       res.status(404).json({ message: 'No Blog with this id!' });
       return;
     }
-    res.status(200).json(dbBlogData);
+    res.status(200).json(BlogDB);
   } catch (err) {
     res.status(500).json(err);
   }
