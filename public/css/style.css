@@ -87,25 +87,25 @@
   #updatepost:hover {
     background-color: var(--hover);
   }
-  /* .sample-img {
+  /* article {
     background-color: #fff;
     width: 100%;
     padding: 0;
     border: 5px solid black;
   } */
   
-  /* .sample-img p {
+  /* article p {
     padding-left: 20px; /* Add padding to the left side */
     /* margin-bottom:10px;  
   } */ 
   
   /* Make the textarea stretch to both sides */
-  .sample-img .form-group textarea {
+  article .form-group textarea {
     width: 100%;
   }
   
   /* Make the submit button stretch to both sides */
-  .sample-img .form-group button {
+  article .form-group button {
     width: 100%;
   }
   
@@ -135,25 +135,25 @@
   }
   
   /* form stack column-wise*/
-  .sample-img form {
+  article form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .sample-img label {
+  article label {
     font-weight: bold;
     margin-bottom: 5px;
   }
   
-  .sample-img input[type="text"],
-  .sample-img input[type="password"] {
+  article input[type="text"],
+  article input[type="password"] {
     padding: 8px;
     width: 200px;
     margin-bottom: 10px;
   }
   
-  .sample-img input[type="submit"] {
+  article input[type="submit"] {
     padding: 8px 16px;
     background-color: var(--maincolour);
     color: #fff;
@@ -162,20 +162,20 @@
   }
   
   /* effect on button hover */
-  .sample-img input[type="submit"]:hover {
+  article input[type="submit"]:hover {
     background-color: var(--maincolour);
   }
   
-  .sample-img p {
+  article p {
     margin-top: 10px;
   }
   
-  .sample-img a {
+  article a {
     color: var(--maincolour);
     text-decoration: none;
   }
   
-  .sample-img a:hover {
+  article a:hover {
     text-decoration: underline;
   }
   

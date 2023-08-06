@@ -1,5 +1,5 @@
 const newPostButton = document.querySelector('.new-post-button');
-const articleElement = document.querySelector('.sample-img');
+const articleElement = document.querySelector('article');
 const createButton = document.querySelector('#crate');
 
 newPostButton.addEventListener('click', () => {
