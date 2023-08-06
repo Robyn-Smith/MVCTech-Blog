@@ -38,9 +38,9 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userInfoDB.checkPassword(req.body.password);
+    const correctPassword = await userInfoDB.checkPassword(req.body.password);
 
-    if (!validPassword) {
+    if (!correctPassword) {
       res.status(400).json({ message: 'Unable to login' });
       return;
     }
