@@ -115,8 +115,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;    
-    background-color: var(--maincolour); /* Background color for the header */
-    color: #fff; /* Font color for the header */
+    background-color: var(--maincolour);
+    color: #fff; 
     padding: 10px;  
     border-radius: 5px;
   }
