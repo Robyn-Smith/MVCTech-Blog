@@ -1,8 +1,8 @@
-const newPostButton = document.querySelector('.new-post-button');
+const addPostBtn = document.querySelector('.new-post-button');
 const articleElement = document.querySelector('article');
 const createButton = document.querySelector('#crate');
 
-newPostButton.addEventListener('click', () => {
+addPostBtn.addEventListener('click', () => {
   articleElement.classList.remove('d-none');
 });
 
