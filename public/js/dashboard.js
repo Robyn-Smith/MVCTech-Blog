@@ -10,6 +10,7 @@ const createDashboard = async (event) => {
   
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
+    
     if (title && description) {
       const result = await fetch(`/dashboard`, {
         method: 'POST',
