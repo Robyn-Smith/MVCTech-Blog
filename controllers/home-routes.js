@@ -2,57 +2,47 @@ const router = require('express').Router();
 const { Blog, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// GET all blogs for homepage
+// Home Page - Get all blogs
 router.get('/', async (req, res) => {
   try {
-    const BlogDB = await Blog.findAll({
+    const blogsDB = await Blog.findAll({
       include: [
-        {
-          model: Comment,
-        },
-        {
-          model: User,
-        }
+        { model: Comment },
+        { model: User }
       ],
-      order: [['createdAt', 'DESC']],      
+      order: [['createdAt', 'DESC']]
     });
 
-    const blogs = BlogDB.map((blog) =>
-      blog.get({ plain: true })
-    );
-    res.render('homepage', {
-      blogs,
-      loggedIn: req.session.loggedIn,
-    });
+    const blogs = blogsDB.map(blog => blog.get({ plain: true }));
+    res.render('homepage', { blogs, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// GET one blog only, and by id
+// View Single Blog Post
 router.get('/blog/:id', withAuth, async (req, res) => {
-  // If the user is logged in, allow them to view the blog
   try {
-    const BlogDB = await Blog.findByPk(req.params.id, {
+    const blogDB = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
           include: [
             {
               model: User,
-              attributes: ['username'],
-            },
-          ],
-        },
-      ],
+              attributes: ['username']
+            }
+          ]
+        }
+      ]
     });
-    if (BlogDB){
-      const blog = BlogDB.get({ plain: true });
+
+    if (blogDB) {
+      const blog = blogDB.get({ plain: true });
       res.render('blog', { blog, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).json({ message: 'No Blog found with that id!' });
-      return;
     }
   } catch (err) {
     console.log(err);
@@ -60,34 +50,27 @@ router.get('/blog/:id', withAuth, async (req, res) => {
   }
 });
 
-// Post Comment on a blog post
+// Add Comment to Blog Post
 router.post('/api/blog/:id', withAuth, async (req, res) => {
-
   try {
-    // retrieve the user.id from username
     const userInfoDB = await User.findOne({
       where: {
-        username: req.session.username,
-      },
+        username: req.session.username
+      }
     });
 
     if (userInfoDB.id) {
-      try {
-        const CommentDB = await Comment.create({
-          blog_id: req.params.id,
-          description: req.body.comment,
-          user_id: userInfoDB.id
-        });
-        req.session.save(() => {
-          req.session.loggedIn = true;
-          req.session.username = req.session.username;
-    
-          res.status(200).json(CommentDB);
-        });
-      } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-      }
+      const commentDB = await Comment.create({
+        blog_id: req.params.id,
+        description: req.body.comment,
+        user_id: userInfoDB.id
+      });
+
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.username = req.session.username;
+        res.status(200).json(commentDB);
+      });
     }
   } catch (err) {
     console.log(err);
@@ -98,32 +81,22 @@ router.post('/api/blog/:id', withAuth, async (req, res) => {
 // Dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // find  the user.id from username
     const userInfoDB = await User.findOne({
       where: {
-        username: req.session.username,
-      },
+        username: req.session.username
+      }
     });
 
     if (userInfoDB.id) {
-      try {
-        const BlogDB = await Blog.findAll({
-          where: {
-            user_id: userInfoDB.id,
-          },
-          order: [['createdAt', 'DESC']], 
-        });
-        let blogs ={};
-        if (BlogDB){
-          blogs = BlogDB.map((blog) =>
-            blog.get({ plain: true })
-          );
-        }
-        res.render('dashboard', { blogs, loggedIn: req.session.loggedIn });
-      } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-      }
+      const blogDB = await Blog.findAll({
+        where: {
+          user_id: userInfoDB.id
+        },
+        order: [['createdAt', 'DESC']]
+      });
+
+      const blogs = blogDB.map(blog => blog.get({ plain: true }));
+      res.render('dashboard', { blogs, loggedIn: req.session.loggedIn });
     }
   } catch (err) {
     console.log(err);
@@ -134,30 +107,24 @@ router.get('/dashboard', withAuth, async (req, res) => {
 // Create Blog Post
 router.post('/dashboard', withAuth, async (req, res) => {
   try {
-    // retrieve the user.id from username
     const userInfoDB = await User.findOne({
       where: {
-        username: req.session.username,
-      },
+        username: req.session.username
+      }
     });
 
     if (userInfoDB.id) {
-      try {
-        const BlogDB = await Blog.create({
-          title: req.body.title,
-          description: req.body.description,
-          user_id: userInfoDB.id
-        });
-        req.session.save(() => {
-          req.session.loggedIn = true;
-          req.session.username = req.session.username;
-    
-          res.status(200).json(BlogDB);
-        });
-      } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-      }
+      const blogDB = await Blog.create({
+        title: req.body.title,
+        description: req.body.description,
+        user_id: userInfoDB.id
+      });
+
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.username = req.session.username;
+        res.status(200).json(blogDB);
+      });
     }
   } catch (err) {
     console.log(err);
@@ -165,18 +132,16 @@ router.post('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-
-// GET one Blog Post, own blog post
+// View Own Blog Post
 router.get('/myblog/:id', withAuth, async (req, res) => {
   try {
-    const BlogDB = await Blog.findByPk(req.params.id);
+    const blogDB = await Blog.findByPk(req.params.id);
 
-    if (BlogDB){
-      const blog = BlogDB.get({ plain: true });
+    if (blogDB) {
+      const blog = blogDB.get({ plain: true });
       res.render('myblog', { blog, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).json({ message: 'No Blog found with that id!' });
-      return;
     }
   } catch (err) {
     console.log(err);
@@ -184,57 +149,56 @@ router.get('/myblog/:id', withAuth, async (req, res) => {
   }
 });
 
-
-// DELETE a blog post (can only do so by post creator)
+// Delete Own Blog Post
 router.delete('/myblog/:id', withAuth, async (req, res) => {
   try {
-    const BlogDB = await Blog.destroy({
+    const blogDB = await Blog.destroy({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
-    if (!BlogDB) {
+
+    if (!blogDB) {
       res.status(404).json({ message: 'No Blog found with that id!' });
-      return;
+    } else {
+      res.status(200).json(blogDB);
     }
-    res.status(200).json(BlogDB);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// PUT update the blog post
+// Update Own Blog Post
 router.put('/myblog/:id', withAuth, async (req, res) => {
   try {
-    const BlogDB = await Blog.update(req.body, {
+    const blogDB = await Blog.update(req.body, {
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
-    if (!BlogDB[0]) {
+
+    if (!blogDB[0]) {
       res.status(404).json({ message: 'No Blog with this id!' });
-      return;
+    } else {
+      res.status(200).json(blogDB);
     }
-    res.status(200).json(BlogDB);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-// Login 
+// Login Page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
-    return;
+  } else {
+    res.render('login');
   }
-  res.render('login');
 });
 
-// Signup
+// Signup Page
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
-
 
 module.exports = router;
