@@ -159,18 +159,12 @@
   }
   
   .addPostBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
     background-color: var(--maincolour);
     color: #fff;
-    border: none;
-    cursor: pointer;
   }
   
   .addPostBtn:hover {
-    background-color: var(--maincolour);
+    background-color: var(--hover);
   }
   
   a {
