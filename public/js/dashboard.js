@@ -6,7 +6,7 @@ newPostButton.addEventListener('click', () => {
   articleElement.classList.remove('d-none');
 });
 
-const submitBlogHandler = async (event) => {
+const createDashboard = async (event) => {
     event.preventDefault();
   
     const title = document.querySelector('#title').value.trim();
@@ -31,4 +31,4 @@ const submitBlogHandler = async (event) => {
   
   document
     .querySelector('#create')
-    .addEventListener('submit', submitBlogHandler);
+    .addEventListener('submit', createDashboard);
