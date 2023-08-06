@@ -1,6 +1,5 @@
 const addPostBtn = document.querySelector('.new-post-button');
 const articleEl = document.querySelector('article');
-const newBtn = document.querySelector('newBtn');
 
 addPostBtn.addEventListener('click', () => {
   articleEl.classList.remove('d-none');

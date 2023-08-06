@@ -87,30 +87,7 @@
   #updatepost:hover {
     background-color: var(--hover);
   }
-  /* article {
-    background-color: #fff;
-    width: 100%;
-    padding: 0;
-    border: 5px solid black;
-  } */
-  
-  /* article p {
-    padding-left: 20px; /* Add padding to the left side */
-    /* margin-bottom:10px;  
-  } */ 
-  
-  /* Make the textarea stretch to both sides */
-  article .form-group textarea {
-    width: 100%;
-  }
-  
-  /* Make the submit button stretch to both sides */
-  article .form-group button {
-    width: 100%;
-  }
-  
-  
-  /* that is the title bar, white font and dark blue background*/
+
   .title {
     display: flex;
     justify-content: space-between;
@@ -134,7 +111,6 @@
     background-color: var(--hover);
   }
   
-  /* form stack column-wise*/
   article form {
     display: flex;
     flex-direction: column;
@@ -161,7 +137,6 @@
     cursor: pointer;
   }
   
-  /* effect on button hover */
   article input[type="submit"]:hover {
     background-color: var(--maincolour);
   }
@@ -183,7 +158,6 @@
     width: 100%;
   }
   
-  /* new post button on the lower right-hand corner*/
   .new-post-button {
     position: fixed;
     bottom: 20px;
@@ -195,12 +169,10 @@
     cursor: pointer;
   }
   
-  /* effect on hover on button*/
   .new-post-button:hover {
     background-color: var(--maincolour);
   }
   
-  /* default: no underline for <a> link*/
   a {
     text-decoration: none;
   }
@@ -211,13 +183,11 @@
     transition: color 0.3s;
   }
   
-  /* on hover: add underline*/
   .box a:hover {
     color: var(--hover); 
     text-decoration: none; 
   }
   
-  /* for username and password, make them display center */
   .input-container {
     display: flex;
     justify-content: center;  
@@ -227,7 +197,6 @@
     body{
       font-weight: lighter;
     }
-    /* Use flex-direction to stack the navbar, sidebar, and body */
     main,
     nav {
       flex-direction: column;
@@ -237,7 +206,6 @@
       margin: auto;
       font-weight: lighter;
     }
-    /* Make the sidebar stack below the body */
     aside {
       order: 2;
     }
