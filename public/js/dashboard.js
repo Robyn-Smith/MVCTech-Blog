@@ -1,4 +1,4 @@
-const addPostBtn = document.querySelector('.new-post-button');
+const addPostBtn = document.querySelector('.addPostBtn');
 const articleEl = document.querySelector('article');
 
 addPostBtn.addEventListener('click', () => {
@@ -10,7 +10,7 @@ const createDashboard = async (event) => {
   
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
-    
+
     if (title && description) {
       const result = await fetch(`/dashboard`, {
         method: 'POST',

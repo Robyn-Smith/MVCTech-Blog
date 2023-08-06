@@ -158,7 +158,7 @@
     width: 100%;
   }
   
-  .new-post-button {
+  .addPostBtn {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -169,7 +169,7 @@
     cursor: pointer;
   }
   
-  .new-post-button:hover {
+  .addPostBtn:hover {
     background-color: var(--maincolour);
   }
   
