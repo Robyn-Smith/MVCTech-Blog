@@ -1,9 +1,9 @@
 # MVCTech-Blog
-## Your Task
+## Description
 
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+This project was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This site has been built  from scratch and deployed to Heroku. This app will follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## User Story
 
@@ -50,3 +50,24 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 ```
+## Usage
+
+
+## Installation
+To install this application please add your username and password into a .env file for your own protection, please use .env.EXAMPLE file for support. Then type the following demands in the terminal:
+```md
+npm i
+mysql -u root -p
+```
+Then when prompted enter your mySQL password. Please ensure you have properly logged into your mySQL before continuing.
+```md
+source db/schema.sql
+quit;
+```
+```md
+npm run seed
+npm run start
+```
+Finally, the user can see the application by using the link http://localhost:3001/ or they can access using the deployed heroku link
+
+## Walkthrough video
