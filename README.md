@@ -53,6 +53,10 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 ## Usage
 When the user opens the applicaton they will see a navigation bar at the top of the page with links to the Login, Homepage and Dashboard. The user will not be able to access the Dashboard or comments on posts without logging in first. On the login page the user encouraged to enter a username and corresponding password. If the user does not have a login yet they have the option to click on the sign up link below, this will then change to the sign up page where a user can enter a name and password of their own choosing, however the password cannot be too short. Once logged in and on the homepage, the user will see a list of posts created by other users including the name of the blog, a description of the blog and information about when the post was created and who created it.
 
+Once a post is selected the user will be directed to the comments page where the user can view all comments relating to that post with information about the comment such as the author of the comment and the date the comment was posted. At the moment, posts and comments have been added using randomised seed data so that the user can see the functionality of the page. the user can add a comment about the post by entering a comment at the bottom of the page in the text area and selecting the submit button. This will then post the comment with the users name and current date. 
+
+If the user selects the dashboard link on the navigation bar, they will see the posts they have already created and have the option to create a new post by pressing the button at the bottom of the page. If the user selects a post they have already made, they have the options to update/edit and delete the post or description. If the user selects the create a new post button, they will be encouraged to enter a blog title and description. Once the user has finished writing the title and description they have the option to post the blog by selecting the button at the bottom of the page.
+
 ## Installation
 To install this application please add your username and password into a .env file for your own protection, please use .env.EXAMPLE file for support. Then type the following demands in the terminal:
 ```md
@@ -70,4 +74,5 @@ npm run start
 ```
 Finally, the user can see the application by using the link http://localhost:3001/ or they can access using the deployed heroku link
 
-## Walkthrough video
+## Screenshots of Application
+
