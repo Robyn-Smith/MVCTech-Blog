@@ -51,7 +51,7 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 ```
 ## Usage
-When the user opens the applicaton they will see a navigation bar at the top of the page with links to the Login, Homepage and Dashboard. The user will not be able to access the Dashboard or comments on posts without logging in first. On the login page the user encouraged to enter a username and corresponding password. If the user does not have a login yet they have the option to click on the sign up link below, this will then change to the sign up page where a user can enter a name and password of their own choosing, however the password cannot be too short. Once logged in and on the homepage, the user will see a list of posts created by other users including the name of the blog, a description of the blog and information about when the post was created and who created it.
+When the user opens the applicaton they will see a navigation bar at the top of the page with links to the Login, Homepage and Dashboard. The user will not be able to access the Dashboard or comments on posts without logging in first. On the login page the user encouraged to enter a username and corresponding password. If the user does not have a login yet they have the option to click on the sign up link below, this will then change to the sign up page where a user can enter a name and password of their own choosing, however the password cannot be too short it must contain at least 8 characters. Once logged in and on the homepage, the user will see a list of posts created by other users including the name of the blog, a description of the blog and information about when the post was created and who created it.
 
 Once a post is selected the user will be directed to the comments page where the user can view all comments relating to that post with information about the comment such as the author of the comment and the date the comment was posted. At the moment, posts and comments have been added using randomised seed data so that the user can see the functionality of the page. the user can add a comment about the post by entering a comment at the bottom of the page in the text area and selecting the submit button. This will then post the comment with the users name and current date. 
 
@@ -82,3 +82,4 @@ Finally, the user can see the application by using the link http://localhost:300
 ![A screenshot of the edit post page](/assets/edit.png)
 
 # Link to deployed heroku
+https://robynsmith-techblog-ce4774308a7e.herokuapp.com/
