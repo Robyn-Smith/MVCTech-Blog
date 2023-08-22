@@ -75,4 +75,10 @@ npm run start
 Finally, the user can see the application by using the link http://localhost:3001/ or they can access using the deployed heroku link
 
 ## Screenshots of Application
+![A screenshot of the homepage](/assets/homepage.png)
+![A screenshot of the login page](/assets/login.png)
+![A screenshot of the dashboard](/assets/dashboard.png)
+![A screenshot of the comment page](/assets/comments.png)
+![A screenshot of the edit post page](/assets/edit.png)
 
+# Link to deployed heroku
