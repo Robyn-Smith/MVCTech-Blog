@@ -83,3 +83,7 @@ Finally, the user can see the application by using the link http://localhost:300
 
 # Link to deployed heroku
 https://robynsmith-techblog-ce4774308a7e.herokuapp.com/
+
+## Walkthrough Video
+https://www.youtube.com/watch?v=vON_kEqx5IM
+
